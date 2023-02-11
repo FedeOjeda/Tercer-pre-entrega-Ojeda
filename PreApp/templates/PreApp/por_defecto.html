@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
 <html lang="en">
-<!--<![endif]-->
 <head>
    {% load static %} 
    <meta charset="utf-8">
@@ -48,11 +43,11 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{% url 'inicio' %}">INICIO</a>
                     </li>
-                    <li><a href="#about">CLIENTES</a>
+                    <li><a href="{% url 'op_clientes' %}">CLIENTES</a>
                     </li>
-                    <li><a href="#services">PRODUCTOS</a>
+                    <li><a href="{% url 'op_productos' %}">PRODUCTOS</a>
                     </li>
-                     <li><a href="#contact">FORMA DE PAGO</a>
+                     <li><a href="{% url 'op_forma_pago' %}">FORMA DE PAGO</a>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -61,41 +56,24 @@
     </nav>
     <!--End Navigation -->
     <!--Header section  -->
-    <div class="container" id="home">
-        <div class="row text-center ">
-             <div class="col-md-3 head-main ">             
-                            <i class="fa fa-bell color-blue "></i>
-                         <h3>  <a href="{% url 'inicio' %}">INICIO</a></h3>
-   
-                 </div>
-            <div class="col-md-3 head-main">
+    {% block contenido %}
     
-                          <i class="fa fa-edit color-blue "></i>
-                         <h3>  <a href="#about">CLIENTES</a></h3>
-       
-                 </div>
-             <div class="col-md-3 head-main">
-
-                        <i class="fa fa-globe color-blue "></i>
-                         <h3>  <a href="#services">PRODUCTOS</a></h3>
-          
-                 </div>
-             <div class="col-md-3 head-main">
-                   <i class="fa fa-headphones color-blue"></i>
-                      <h3>  <a href="#contact">FORMA DE PAGO</a></h3>
-      
-                 </div>
-          </div>
-    </div>
+    {% endblock contenido %}
     <!--End Header section  -->
     <!--About Section-->
-    {% block contenido %}
-        
-    {% endblock contenido %}
+    <section class="for-full-back color-light " id="about">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1>TERCER PRE-ENTREGA PREAPP</h1>
+                </div>
+            </div>
+        </div>
+    </section>  
     <!--End About Section-->
     <!--footer Section -->
     <div class="for-full-back " id="footer">
-        FEDERICO OJEDA | All Right Reserved
+        FEDERICO OJEDA | Todos los derechos reservados
     </div>
     <!--End footer Section -->
     <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
