@@ -1,0 +1,32 @@
+{% extends 'PreApp/por_defecto.html' %}
+
+{% block titulo %}
+Busqueda producto
+{% endblock %}
+
+{% block contenido %}
+<div class="container" id="home">
+    <div class="row-text-center ">
+        <div class="col-md-3 head-main">
+            <i class="fa fa-edit color-blue "></i>
+                <h3 style="color:rgb(0, 0, 0);">VER PRODUCTO</h3>
+        </div>
+    </div>
+</div> 
+<section class="for-full-back color-light " id="about">
+    <div class="container" id="home">
+        <div class="row">
+            <div class="col-lg-12">
+                <i class="fa fa-edit color-blue "></i>
+                    <h3 style="color:rgb(0, 0, 0);">Ingrese el producto que compro</h3>
+                        <form action="{% url 'buscar_p' %}" method="GET">
+                            {% csrf_token %}
+                                <input type="text" name="producto" id="producto">
+                                <input type="submit" value="Buscar">
+                        </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

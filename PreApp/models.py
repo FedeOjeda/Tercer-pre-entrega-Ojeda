@@ -25,7 +25,7 @@ class Datos_Compra(models.Model):
     metodo_pago = models.CharField(max_length=30)
     importe =  models.IntegerField()
     descuento = models.DecimalField(max_digits=5, decimal_places=2) 
-    fecha = models.DateField()
+    fecha = models.DateField('%m/%d/%y')
     
     def __str__(self):
         return self.metodo_pago + '(' + str(self.importe) + ')'

@@ -17,9 +17,6 @@ def op_forma_pago(request):
 def op_productos(request):
     return render(request, 'PreApp/op_productos.html')
 
-def resultados_cliente(request):
-    return render(request, 'PreApp/resultados_cliente.html')
-
 def formulario_de_clientes(request):
     
     if request.method == 'POST':
@@ -39,6 +36,9 @@ def formulario_de_clientes(request):
     
     mi_formulario = FormularioClientes()
     return render(request, 'PreApp/formulario_cliente.html', {'formulario_cliente': mi_formulario})
+
+def resultados_cliente(request):
+    return render(request, 'PreApp/resultados_cliente.html')
 
 def formulario_de_productos(request):
     
@@ -89,7 +89,42 @@ def buscar_c(request):
         mi_nombre = request.GET['nombre']
         resultado = Datos_Cliente.objects.filter(nombre__icontains=mi_nombre)
         return render(request, 'PreApp/resultados_cliente.html', {'clientes': resultado, 'nombre': mi_nombre})
-    
-    
-    respuesta = 'No se encontro es cliente'
+    respuesta = 'No se encontro ese cliente'
     return HttpResponse(respuesta)
+
+def resultados_cliente(request):
+    return render(request, 'PreApp/resultados_cliente.html')
+
+def busqueda_productos(request):
+    return render(request, 'PreApp/busqueda_producto.html')
+
+def buscar_p(request):
+    
+    if request.GET['producto']:
+        mi_producto = request.GET['producto']
+        resultado = Datos_Producto.objects.filter(producto__icontains=mi_producto)
+        return render(request, 'PreApp/resultados_producto.html', {'objetos': resultado, 'producto': mi_producto})
+    
+    
+    respuesta = 'No se encontro el producto'
+    return HttpResponse(respuesta)
+
+def resultados_producto(request):
+    return render(request, 'PreApp/resultados_producto.html')
+
+def busqueda_pago(request):
+    return render(request, 'PreApp/busqueda_pago.html')
+
+def buscar_fdp(request):
+    
+    if request.GET['forma_de_pago']:
+        mi_pago = request.GET['forma_de_pago']
+        resultado = Datos_Compra.objects.filter(metodo_pago__icontains=mi_pago)
+        return render(request, 'PreApp/resultados_pago.html', {'pago': resultado, 'forma_de_pago': mi_pago})
+    
+    
+    respuesta = 'No se encontro el metodo de pago'
+    return HttpResponse(respuesta)
+
+def resultados_pago(request):
+    return render(request, 'PreApp/resultados_pago.html')

@@ -1,0 +1,39 @@
+{% extends 'PreApp/por_defecto.html' %}
+
+{% block titulo %}
+Resultados Prodcuto
+{% endblock %}
+
+{% block contenido %}
+<div class="for-full-back color-light " id="about"></div>
+<div class="container">
+    <div class="row text-center">
+        <div class="col-md-8 col-md-offset-2">
+            <h3 style="color: black;">Resultados</h3>
+        </div>
+    </div>
+</div>
+<section class="for-full-back color-light " id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <body>
+                    <p>Se compro el siguiente producto: {{ producto }} </p>
+                
+                    {% if producto %}
+                
+                    <ul>
+                        {% for producto in objetos %}
+                        <li>Cantidad: {{ producto.cantidad }}  </li>
+                        <li>Lugar de Compra: {{ producto.lugar }}  </li>
+                        {% endfor %}
+                    </ul>
+                
+                    {% endif %}
+                </body>
+    </div>
+       </div>
+            </div>
+</section> 
+
+{% endblock %}
