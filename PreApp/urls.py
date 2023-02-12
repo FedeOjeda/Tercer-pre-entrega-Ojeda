@@ -11,4 +11,7 @@ urlpatterns = [
     path('/formulario_cliente', formulario_de_clientes, name ='formulario_cliente'),
     path('/formulario_producto', formulario_de_productos, name ='formulario_producto'),
     path('/formulario_pago', formulario_de_pago, name ='formulario_pago'),
+    path('/busqueda_cliente', busqueda_cliente, name='busqueda_cliente'),
+    path('/buscar_c', buscar_c, name='buscar_c'),
+    path('/resultados_cliente', resultados_cliente, name='resultados_cliente'),
 ]

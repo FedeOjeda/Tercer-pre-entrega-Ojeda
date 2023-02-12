@@ -28,4 +28,4 @@ class Datos_Compra(models.Model):
     fecha = models.DateField()
     
     def __str__(self):
-        return self.importe + '(' + str(self.fecha) + ')'
+        return self.metodo_pago + '(' + str(self.importe) + ')'

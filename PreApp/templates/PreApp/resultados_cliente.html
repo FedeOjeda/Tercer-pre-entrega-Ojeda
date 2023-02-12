@@ -1,0 +1,39 @@
+{% extends 'PreApp/por_defecto.html' %}
+
+{% block titulo %}
+Resultados Cliente
+{% endblock %}
+
+{% block contenido %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de la busqueda</title>
+</head>
+<body>
+    <p>Estamos buscando el cliente{{ cliente }}</p>
+
+    {% if clientes %}
+
+    <ul>
+        {% for cliente in clientes %}
+        <li> {{ cliente.nombre }}: {{ cliente.apellido }} </li>
+        {% endfor %}
+    </ul>
+
+    {% endif %}
+</body>
+</html>
+
+<section class="for-full-back color-light " id="about">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-8 col-md-offset-2">
+                <h1 style="color: black;">TERCER PRE-ENTREGA PREAPP</h1>
+            </div>
+        </div>
+    </div>
+</section>  
+{% endblock %}
