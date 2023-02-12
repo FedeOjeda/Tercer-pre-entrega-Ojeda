@@ -6,15 +6,25 @@ Opciones Cliente
 
 {% block contenido %}
 <div class="container" id="home">
-    <div class="row-text-center ">
+    <div class="row-text-center">
         <div class="col-md-3 head-main">
             <i class="fa fa-edit color-blue "></i>
-                <h3>  <a href="#about">AGREGAR CLIENTES</a></h3>
+                <h3><a href="{% url 'formulario_cliente' %}", style="color: black;">AGREGAR CLIENTES</a></h3>
         </div>
         <div class="col-md-3 head-main">
             <i class="fa fa-globe color-blue "></i>
-                <h3>  <a href="#services">VER CLIENTES</a></h3>
+                <h3 style="color: black;">  <a href="#services", style="color: black;">VER CLIENTES</a></h3>
         </div>
     </div>
 </div>
+
+<section class="for-full-back color-light " id="about">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-8 col-md-offset-2">
+                <h1 style="color: black;">TERCER PRE-ENTREGA PREAPP</h1>
+            </div>
+        </div>
+    </div>
+</section>  
 {% endblock %}

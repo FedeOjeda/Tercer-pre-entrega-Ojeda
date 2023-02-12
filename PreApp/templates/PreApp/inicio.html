@@ -9,26 +9,36 @@ PreApp
     <div class="row text-center ">
          <div class="col-md-3 head-main ">             
                         <i class="fa fa-bell color-blue "></i>
-                     <h3>  <a href="{% url 'inicio' %}">INICIO</a></h3>
+                     <h3>  <a href="{% url 'inicio' %}", style="color: black;">INICIO</a></h3>
 
              </div>
         <div class="col-md-3 head-main">
 
                       <i class="fa fa-edit color-blue "></i>
-                     <h3>  <a href="{% url 'op_clientes' %}">CLIENTES</a></h3>
+                     <h3>  <a href="{% url 'op_clientes' %}", style="color: black;">CLIENTES</a></h3>
    
              </div>
          <div class="col-md-3 head-main">
 
                     <i class="fa fa-globe color-blue "></i>
-                     <h3>  <a href="{% url 'op_productos' %}">PRODUCTOS</a></h3>
+                     <h3>  <a href="{% url 'op_productos' %}", style="color: black;">PRODUCTOS</a></h3>
       
              </div>
          <div class="col-md-3 head-main">
                <i class="fa fa-headphones color-blue"></i>
-                  <h3>  <a href="{% url 'op_forma_pago' %}">FORMA DE PAGO</a></h3>
+                  <h3>  <a href="{% url 'op_forma_pago' %}", style="color: black;">FORMA DE PAGO</a></h3>
   
              </div>
       </div>
 </div>
+
+<section class="for-full-back color-light " id="about">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-8 col-md-offset-2">
+                <h1 style="color: black;">TERCER PRE-ENTREGA PREAPP</h1>
+            </div>
+        </div>
+    </div>
+</section>  
 {% endblock %}
