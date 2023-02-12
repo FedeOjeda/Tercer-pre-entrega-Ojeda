@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from django.http import HttpResponse
 
 from .models import *
 from .forms import *
@@ -90,5 +91,5 @@ def buscar_c(request):
         return render(request, 'PreApp/resultados_cliente.html', {'clientes': resultado, 'nombre': mi_nombre})
     
     
-    respuesta = 'No se encontro esa camada'
+    respuesta = 'No se encontro es cliente'
     return HttpResponse(respuesta)
