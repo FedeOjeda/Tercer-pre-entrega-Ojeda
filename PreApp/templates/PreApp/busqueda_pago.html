@@ -21,7 +21,7 @@ Busqueda Forma de Pago
                     <h3 style="color:rgb(0, 0, 0);">Ingrese el metodo con el que pago el producto</h3>
                         <form action="{% url 'buscar_fdp' %}" method="GET">
                             {% csrf_token %}
-                                <input type="text" name="forma_de_pago" id="metodo_pago">
+                                <input type="text" name="formapago" id="formapago">
                                 <input type="submit" value="Buscar">
                         </form>
             </div>

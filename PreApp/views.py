@@ -67,7 +67,7 @@ def formulario_de_pago(request):
         if mi_formulario.is_valid():
             informacion = mi_formulario.cleaned_data
             producto = Datos_Compra(
-                            metodo_pago=informacion['metodo_pago'],
+                            formapago=informacion['formapago'],
                             importe=informacion['importe'],
                             descuento=informacion['descuento'],
                             fecha=informacion['fecha'],
@@ -117,10 +117,10 @@ def busqueda_pago(request):
 
 def buscar_fdp(request):
     
-    if request.GET['forma_de_pago']:
-        mi_pago = request.GET['forma_de_pago']
-        resultado = Datos_Compra.objects.filter(metodo_pago__icontains=mi_pago)
-        return render(request, 'PreApp/resultados_pago.html', {'pago': resultado, 'forma_de_pago': mi_pago})
+    if request.GET['formapago']:
+        mi_pago = request.GET['formapago']
+        resultado = Datos_Compra.objects.filter(formapago__icontains=mi_pago)
+        return render(request, 'PreApp/resultados_pago.html', {'pago': resultado, 'formapago': mi_pago})
     
     
     respuesta = 'No se encontro el metodo de pago'

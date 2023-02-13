@@ -15,7 +15,7 @@ class FormularioProductos(forms.Form):
     
 class FormularioPago(forms.Form):
     
-    metodo_pago = forms.CharField()
+    formapago = forms.CharField()
     importe =  forms.IntegerField()
     descuento = forms.DecimalField() 
     fecha = forms.DateField()

@@ -18,15 +18,15 @@ Resultados Forma de Pago
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <body>
-                    <p>El metodo de pago elegido fue {{ forma_de_pago }} </p>
+                    <p>El metodo de pago elegido fue {{ formapago }} </p>
                 
-                    {% if  forma_de_pago %}
+                    {% if  formapago %}
                 
                     <ul>
-                        {% for  forma_de_pago in pago %}
-                        <li>Importe: {{  forma_de_pago.importe }}  </li>
-                        <li>Descuento: {{  forma_de_pago.descuento }}  </li>
-                        <li>Fecha: {{  forma_de_pago.fecha }}  </li>
+                        {% for  formapago in pago %}
+                        <li>Importe: {{  formapago.importe }}  </li>
+                        <li>Descuento: {{  formapago.descuento }}  </li>
+                        <li>Fecha: {{  formapago.fecha }}  </li>
                         {% endfor %}
                     </ul>
                 
