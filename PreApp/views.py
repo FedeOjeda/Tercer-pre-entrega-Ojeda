@@ -4,21 +4,24 @@ from django.http import HttpResponse
 from .models import *
 from .forms import *
 
-# Create your views here.
+# Página de inicio.
 def inicio(request):
     return render(request, 'PreApp/inicio.html')
 
+# Página de opciones del cliente.
 def op_clientes(request):
     return render(request, 'PreApp/op_clientes.html')
 
+# Página de opcines de forma de pago.
 def op_forma_pago(request):
     return render(request, 'PreApp/op_forma_pago.html')
 
+# Página de opciones de productos.
 def op_productos(request):
     return render(request, 'PreApp/op_productos.html')
 
+# Página del formulario para agregar un cliente.
 def formulario_de_clientes(request):
-    
     if request.method == 'POST':
         mi_formulario = FormularioClientes(request.POST)
         
@@ -33,15 +36,11 @@ def formulario_de_clientes(request):
             cliente.save()
             return redirect('op_clientes')
 
-    
     mi_formulario = FormularioClientes()
     return render(request, 'PreApp/formulario_cliente.html', {'formulario_cliente': mi_formulario})
 
-def resultados_cliente(request):
-    return render(request, 'PreApp/resultados_cliente.html')
-
+# Página para agregar un producto.
 def formulario_de_productos(request):
-    
     if request.method == 'POST':
         mi_formulario = FormularioProductos(request.POST)
         
@@ -55,34 +54,33 @@ def formulario_de_productos(request):
             producto.save()
             return redirect('op_productos')
 
-    
     mi_formulario = FormularioProductos()
     return render(request, 'PreApp/formulario_producto.html', {'formulario_producto': mi_formulario})
 
+# Página para agregar una forma de pago.
 def formulario_de_pago(request):
-    
     if request.method == 'POST':
         mi_formulario = FormularioPago(request.POST)
         
         if mi_formulario.is_valid():
             informacion = mi_formulario.cleaned_data
-            producto = Datos_Compra(
+            compra = Datos_Compra(
                             formapago=informacion['formapago'],
                             importe=informacion['importe'],
                             descuento=informacion['descuento'],
                             fecha=informacion['fecha'],
                         )
-            producto.save()
+            compra.save()
             return redirect('op_forma_pago')
 
-    
     mi_formulario = FormularioPago()
     return render(request, 'PreApp/formulario_pago.html', {'formulario_pago': mi_formulario})
 
+# Página para buscar un cliente agregado a la base de datos.
 def busqueda_cliente(request):
     return render(request, 'PreApp/busqueda_cliente.html')
 
-
+# Continuación del anterior.
 def buscar_c(request):
     
     if request.GET['nombre']:
@@ -92,12 +90,15 @@ def buscar_c(request):
     respuesta = 'No se encontro ese cliente'
     return HttpResponse(respuesta)
 
+# Página donde se ven los resultados de la busqueda.
 def resultados_cliente(request):
     return render(request, 'PreApp/resultados_cliente.html')
 
+# Página para buscar un producto agregado a la base de datos.
 def busqueda_productos(request):
     return render(request, 'PreApp/busqueda_producto.html')
 
+# Continuación del anterior.
 def buscar_p(request):
     
     if request.GET['producto']:
@@ -109,12 +110,15 @@ def buscar_p(request):
     respuesta = 'No se encontro el producto'
     return HttpResponse(respuesta)
 
+# Página donde se ven los resultados de la busqueda.
 def resultados_producto(request):
     return render(request, 'PreApp/resultados_producto.html')
 
+# Página para buscar la forma de pago agregado a la base de datos.
 def busqueda_pago(request):
     return render(request, 'PreApp/busqueda_pago.html')
 
+# Continuacion del anterior.
 def buscar_fdp(request):
     
     if request.GET['formapago']:
@@ -126,5 +130,6 @@ def buscar_fdp(request):
     respuesta = 'No se encontro el metodo de pago'
     return HttpResponse(respuesta)
 
+# Página donde se ven los resultados de la busqueda.
 def resultados_pago(request):
     return render(request, 'PreApp/resultados_pago.html')
